@@ -1,6 +1,7 @@
 import React,{ Component } from "react";
 import reduxTab from "../json/reduxTab.json";
 import tool from "../util/tool.js";
+import $ from "jquery";
 
 export default class Redux extends Component {
   constructor(props) {
@@ -11,14 +12,20 @@ export default class Redux extends Component {
      };
   }
   loadTab(){
-     let li = reduxTab.title.map( (item,index) => <li key = {index} className = "liRedux" onClick = {this.handleClick.bind(this,"aboutRedux")}>{item[Object.keys(item)]}</li> )
+     let li = reduxTab.title.map( (item,index) => <li key = {index} className = "liRedux" onClick = {this.handleClick.bind(this,"aboutRedux",Object.keys(item))}>{item[Object.keys(item)]}</li> )
      let ul = <ul className = "ulRedux">{li}</ul>;
      return ul
   }
-  handleClick(callback){
-
+  handleClick(callback,filter){
     this.setState({
-       ele:this.state.fun[callback](callback)
+       ele:this.state.fun[callback](filter)
+    })
+  }
+  componentDidMount(){
+    $($(".liRedux")[0]).addClass("active");
+    $(".liRedux").click(function(){
+       $(this).siblings().removeClass("active");
+       $(this).addClass("active");
     })
   }
   render(){
@@ -28,7 +35,7 @@ export default class Redux extends Component {
              {this.loadTab()}
          </div>
          <div className = "content">
-             {this.state.ele || "1111" }
+             {this.state.ele || this.state.fun["aboutRedux"](["aboutRedux"]) }
          </div>
       </div>
     )

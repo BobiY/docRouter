@@ -34,7 +34,7 @@ module.exports = {
     stats:{
       colors:true
     },
-    port:3030,
+    port:3000,
     inline:true
   }
 };
