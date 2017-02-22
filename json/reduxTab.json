@@ -4,9 +4,9 @@
       {"aboutRedux":"关于redux"},
       {"start":"开始"},
       {"action":"action"},
-      {"store":"store"},
       {"reducer":"reducer"},
-      {"showHand":"手动连接"},
+      {"store":"store"},
+      {"hand_movement":"手动连接"},
       {"react-redux":"react-redux"}
     ]
   }

@@ -40,4 +40,4 @@ export default class Redux extends Component {
       </div>
     )
   }
-}
+};
